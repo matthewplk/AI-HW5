@@ -1,0 +1,13 @@
+import numpy as np
+np_images = []
+for it, (images, labels) in enumerate(test_loader):
+  np_images.append(images.detach().cpu().numpy())
+
+np_images = np.concatenate(np_images, axis = 0)
+
+index = 7
+image = np_images[index]
+image = image.transpose(1, 2, 0)
+plt.imshow(image)
+plt.axis("off")
+plt.show()
